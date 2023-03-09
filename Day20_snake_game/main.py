@@ -10,7 +10,7 @@ screen.setup(width=600, height=600)
 screen.title("Snake Charmer")
 screen.tracer(0)  # hold off onscreen update until screen.update() below
 
-# create snake using class Snake imported from snake.py
+# create snake using class Snake imported from paddles.py
 snake = Snake()
 food = Food()
 
