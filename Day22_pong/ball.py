@@ -8,14 +8,21 @@ class Ball(Turtle):
         self.penup()
         self.shapesize(stretch_len=0.5, stretch_wid=0.5)
         self.color("white")
-
-        self.goto(0, 0)
+        # self.goto(0, 0)  # ball starting point
+        self.x_move = 10
+        self.y_move = 10
 
     def move(self):
-        new_x = self.xcor() + 20
-        new_y = self.ycor() + 10
-
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
         self.goto(new_x, new_y)
+
+    def bounce(self):
+        self.y_move *= -1  # so if at top bounces down and if at bottom, bounces up
+
+
+
+
 
 
 

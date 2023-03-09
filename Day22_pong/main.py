@@ -30,24 +30,26 @@ screen.onkeypress(l_paddle.go_down, "s")
 
 
 score_board = ScoreBoard()
-
+ball.goto(0, 0)
 game_on = True
 while game_on:
     time.sleep(0.1)
     screen.update()  # turns animations back on
     ball.move()
 
-    # paddle_left.move()
-    # paddle_right.move()
+    # Detect paddle collision with ball
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 850:
+        print("made contact")
+        ball.bounce()
+    if l_paddle.distance(ball) < 15:
+        ball.bounce()
 
-    # Detect collision with food
-    # if snake.head.distance(food) < 15:
-    #     food.refresh()
-    #     snake.extend()
-    #     score_board.increase_score()
     #
-    # # Detect collision with walls
-    # if snake.head.xcor() > 300 or snake.head.xcor() < -300 or snake.head.ycor() > 300 or snake.head.ycor() < -300:
+    # Detect ball collision with top and bottom walls - top wall y=500, bottom wall y=-500
+    if ball.ycor() > 480 or ball.ycor() < -480:
+        print("hit wall")
+        ball.bounce()
+
     #     game_on = False
     #     score_board.game_over()
     #
