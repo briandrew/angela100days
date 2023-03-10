@@ -38,26 +38,17 @@ while game_on:
     ball.move()
 
     # Detect paddle collision with ball
-    if ball.distance(r_paddle) < 50 and ball.xcor() > 850:
-        print("made contact")
-        ball.bounce()
-    if l_paddle.distance(ball) < 15:
-        ball.bounce()
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 830 or ball.distance(l_paddle) < 50 and ball.xcor() < -830:
+        ball.bounce_x()
 
-    #
     # Detect ball collision with top and bottom walls - top wall y=500, bottom wall y=-500
     if ball.ycor() > 480 or ball.ycor() < -480:
-        print("hit wall")
-        ball.bounce()
+        ball.bounce_y()
 
     #     game_on = False
     #     score_board.game_over()
     #
-    # # Detect collision with tail
-    # for segment in snake.segments[1:]:
-    #     if snake.head.distance(segment) < 10:
-    #         game_on = False
-    #         score_board.game_over()
+
 
 
 screen.exitonclick()

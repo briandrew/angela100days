@@ -17,9 +17,11 @@ class Ball(Turtle):
         new_y = self.ycor() + self.y_move
         self.goto(new_x, new_y)
 
-    def bounce(self):
-        self.y_move *= -1  # so if at top bounces down and if at bottom, bounces up
+    def bounce_y(self):
+        self.y_move *= -1
 
+    def bounce_x(self):
+        self.x_move *= -1
 
 
 
