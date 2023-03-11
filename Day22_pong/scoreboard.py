@@ -10,16 +10,15 @@ class ScoreBoard(Turtle):
         self.score = 0
         self.hideturtle()
         self.penup()
-        self.update_scoreboard()
         self.l_score = 0
         self.r_score = 0
         self.update_scoreboard()
 
     def update_scoreboard(self):
         self.clear()
-        self.goto(-100, 450)
+        self.goto(-100, 400)
         self.write(self.l_score, align="center", font=("Courier", 80, "normal"))
-        self.goto(100, 450)
+        self.goto(100, 400)
         self.write(self.r_score, align="center", font=("Courier", 80, "normal"))
 
     def l_point(self):
