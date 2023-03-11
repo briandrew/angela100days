@@ -45,6 +45,17 @@ while game_on:
     if ball.ycor() > 480 or ball.ycor() < -480:
         ball.bounce_y()
 
+    # detect when r_paddle misses
+    if ball.xcor() > 880:
+        ball.reset_position()
+        score_board.l_point()
+
+    # detect when l_paddle misses
+    if ball.xcor() < -880:
+        ball.reset_position()
+        score_board.r_point()
+
+
     #     game_on = False
     #     score_board.game_over()
     #
