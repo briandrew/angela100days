@@ -1,5 +1,5 @@
 import time
-from turtle import Screen, Turtle
+from turtle import Screen
 from paddles import Paddle
 from ball import Ball
 from scoreboard import ScoreBoard
@@ -33,7 +33,8 @@ score_board = ScoreBoard()
 ball.goto(0, 0)
 game_on = True
 while game_on:
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
+    print(ball.move_speed)
     screen.update()  # turns animations back on
     ball.move()
 
@@ -47,18 +48,29 @@ while game_on:
 
     # detect when r_paddle misses
     if ball.xcor() > 880:
+
         ball.reset_position()
         score_board.l_point()
 
     # detect when l_paddle misses
     if ball.xcor() < -880:
+
         ball.reset_position()
         score_board.r_point()
 
+    # end the game when a player reaches 10 points
+    if score_board.l_score == 10:
+        game_on = False
+        print("Left side wins!")
+        score_board.game_over()
 
-    #     game_on = False
-    #     score_board.game_over()
-    #
+    elif score_board.r_score == 10:
+        game_on = False
+        print("Right side wins!")
+        score_board.game_over()
+
+
+
 
 
 
